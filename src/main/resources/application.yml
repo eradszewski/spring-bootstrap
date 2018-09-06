@@ -1,5 +1,7 @@
 #Default Config
 ## Use profile java -jar app.jar -Dspring.profiles.active=<Profile-Name>
+application:
+  name: Ich bin eine Spring Demo (Application Name)
 spring:
   h2:
     console:
@@ -13,6 +15,9 @@ spring:
     password:
     driver-class-name: org.h2.Driver
     platform: h2
+logging:
+  level:
+    root: INFO #DEBUG,INFO,WARN,ERROR
 management:
   endpoints:
     web:

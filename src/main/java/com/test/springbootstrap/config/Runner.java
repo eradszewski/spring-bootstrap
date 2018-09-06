@@ -29,7 +29,7 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        logger.info("same");
+        logger.info("Create Data");
         Game game = new Game();
         game.setPublisher("EA");
         game.setRelase(new Date());

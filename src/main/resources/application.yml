@@ -24,19 +24,6 @@ management:
     web:
       exposure:
         include: "*"
-
-keycloak:
-    auth-server-url: http://localhost:8081/auth
-    public-client: true
-    realm: SpringBootKeycloak
-    resource: login-app-client
-    principal-attribute: preferred_username
-    security-constraints:
-    -   authRoles:
-        - user
-        securityCollections:
-        -   patterns:
-            - /*
 ---
 # Keycloak Profile is not set
 spring:
@@ -50,15 +37,15 @@ keycloak:
 spring:
   profiles: 'keycloak'
 
-#keycloak:
-#    auth-server-url: http://localhost:8081/auth
-#    public-client: true
-#    realm: SpringBootKeycloak
-#    resource: login-app-client
-#    principal-attribute: preferred_username
-#    security-constraints:
-#    -   authRoles:
-#        - user
-#        securityCollections:
-#        -   patterns:
-#            - /*
+keycloak:
+    auth-server-url: http://localhost:8081/auth
+    public-client: true
+    realm: SpringBootKeycloak
+    resource: login-app-client
+    principal-attribute: preferred_username
+    security-constraints:
+    -   authRoles:
+        - user
+        securityCollections:
+        -   patterns:
+            - /*

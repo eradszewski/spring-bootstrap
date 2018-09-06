@@ -18,23 +18,24 @@ spring:
 logging:
   level:
     root: INFO #DEBUG,INFO,WARN,ERROR
+    com.test.springbootstrap.config.Runner: DEBUG
 management:
   endpoints:
     web:
       exposure:
         include: "*"
 ---
-# Dev Config
+# Keycloak Profile is not set
 spring:
-  profiles: dev
+  profiles: '!keycloak'
 
 keycloak:
   enabled: false
 
 ---
-#Cloud Config
+#Keycloak Profile is set
 spring:
-  profiles: keycloak
+  profiles: 'keycloak'
 
 keycloak:
     auth-server-url: http://keycloak:3000/auth

@@ -10,6 +10,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 public class Game implements Identifiable<Long> {
 

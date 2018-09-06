@@ -35,12 +35,15 @@ public class Runner implements CommandLineRunner {
         game.setRelase(new Date());
         game.setTitel("Rain Bow Six");
         gameRepo.save(game);
+        logger.debug(game.toString());
+
 
         Game game2 = new Game();
         game2.setPublisher("Riot");
         game2.setRelase(new Date());
         game2.setTitel("Leage of Leagends");
         gameRepo.save(game2);
+        logger.debug(game2.toString());
 
         List<Plattform> plattformList = new ArrayList<>();
         plattformList.add(

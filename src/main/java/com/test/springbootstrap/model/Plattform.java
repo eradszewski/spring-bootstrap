@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ import java.util.List;
 @Entity
 public class Plattform implements Identifiable<Long> {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter
     private Long id;

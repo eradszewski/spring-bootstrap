@@ -1,7 +1,6 @@
 package com.test.springbootstrap.model;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
@@ -15,7 +14,7 @@ import java.util.List;
 public class Game implements Identifiable<Long> {
 
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter
     private Long id;

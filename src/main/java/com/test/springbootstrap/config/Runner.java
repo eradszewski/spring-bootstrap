@@ -1,6 +1,5 @@
-package com.test.springbootstrap.Config;
+package com.test.springbootstrap.config;
 
-import com.test.springbootstrap.SpringBootstrapApplication;
 import com.test.springbootstrap.dao.GameDao;
 import com.test.springbootstrap.dao.PlattformDao;
 import com.test.springbootstrap.model.Game;
@@ -38,7 +37,7 @@ public class Runner implements CommandLineRunner {
         gameRepo.save(game);
 
         Game game2 = new Game();
-        game2.setPublisher("Roit");
+        game2.setPublisher("Riot");
         game2.setRelase(new Date());
         game2.setTitel("Leage of Leagends");
         gameRepo.save(game2);

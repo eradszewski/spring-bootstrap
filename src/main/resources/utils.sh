@@ -14,11 +14,38 @@ blue=$(tput setaf 38)
 orange=$(tput setaf 208)
 liteblue=$(tput setaf 006)
 
-#
+timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
+banner() {
+echo $orange
+cat << "EOF"
+        VVVVVVVV           VVVVVVVVMMMMMMMM               MMMMMMMM
+        V::::::V           V::::::VM:::::::M             M:::::::M
+        V::::::V           V::::::VM::::::::M           M::::::::M
+        V::::::V           V::::::VM:::::::::M         M:::::::::M
+         V:::::V           V:::::V M::::::::::M       M::::::::::M
+          V:::::V         V:::::V  M:::::::::::M     M:::::::::::M
+           V:::::V       V:::::V   M:::::::M::::M   M::::M:::::::M
+            V:::::V     V:::::V    M::::::M M::::M M::::M M::::::M
+             V:::::V   V:::::V     M::::::M  M::::M::::M  M::::::M
+              V:::::V V:::::V      M::::::M   M:::::::M   M::::::M
+               V:::::V:::::V       M::::::M    M:::::M    M::::::M
+                V:::::::::V        M::::::M     MMMMM     M::::::M
+                 V:::::::V         M::::::M               M::::::M
+                  V:::::V          M::::::M               M::::::M
+                   V:::V           M::::::M               M::::::M
+                    VVV            MMMMMMMM               MMMMMMMM
+EOF
+echo $reset
+}
+
+
+
+
 # Headers and  Logging
 #
 
-e_header() { printf "\n${bold}${orange}===============  %s  ===============${reset}\n" "$@"
+e_header() {  printf  " \n${bold}${orange}=============== %s ${timestamp} ===============${reset}\n" "$@"
 }
 e_arrow() { printf "  ➜ $@\n"
 }

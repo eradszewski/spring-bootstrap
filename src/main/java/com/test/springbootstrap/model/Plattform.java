@@ -26,6 +26,8 @@ public class Plattform implements Identifiable<Long> {
     @Getter @Setter
     private int preis;
 
+    
+
     @ManyToOne
     @Setter @Getter
     private Game game;

@@ -17,16 +17,16 @@ banner
 
 
 # Array registry def
-declare -a registry=("usdev022.usu.usu.grp")
+declare -a registry=("")
 
 
-e_header "start Valumation installation"
-e_success "Initialization of the Valuemation Container registry connection."
+e_header "start  installation"
+e_success "Initialization of the Container registry connection."
 e_success "Connecet to :"
 for r in "${registry[@]}"
 do
    e_arrow_l1 "$r"
-   e_note "Internal Valuemation Registry ($r) without SSL"
+   e_note "Internal  Registry ($r) without SSL"
 done
 e_warning "Default machine not avalible"
 e_error "SSL zert not found"
@@ -36,13 +36,13 @@ e_success "time zone was chaged"
 e_note "Timzone is Berlin/Germany"
 e_success "Metadata import done"
 e_header "start application server"
-e_success "UP: BO-Service"
-e_success "UP: USER-Service"
-e_success "UP: TICKET-Service"
-e_success "UP: USER-MNGM-Service"
+e_success "UP: -Service"
+e_success "UP: -Service"
+e_success "UP: -Service"
+e_success "UP: -Service"
 e_error "DOWN: CONFIG-Serivice"
 e_note "Local config was initialized"
 e_header "start sucessfull"
 e_underline "Connect on:"
 e_arrow "Kibana http://kibana"
-e_arrow "Kibana http://valuemation"
+e_arrow "Kibana http://"

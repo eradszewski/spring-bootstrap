@@ -7,8 +7,12 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource
+@RepositoryRestResource(path = "/v1/Plattform")
 public interface PlattformDao extends PagingAndSortingRepository<Plattform, Long> {
 
     List<Plattform> findByName(@Param("name") String name);
+
+
+
+
 }

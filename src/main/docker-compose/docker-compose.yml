@@ -1,0 +1,53 @@
+version: '3'
+
+volumes:
+  postgres_data:
+      driver: local
+
+services:
+  postgres:
+      image: postgres
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: keycloak
+        POSTGRES_USER: keycloak
+        POSTGRES_PASSWORD: password
+  keycloak:
+      image: jboss/keycloak
+      restart: on-failure
+#      command:
+#      - "-b"
+#      - "0.0.0.0"
+#      - "-Dkeycloak.migration.action=import"
+#      - "-Dkeycloak.migration.provider=dir"
+#      - "-Dkeycloak.migration.dir=/tmp/"
+#      - "-Dkeycloak.migration.strategy=IGNORE_EXISTING"
+      environment:
+        DB_VENDOR: POSTGRES
+        DB_ADDR: postgres
+        DB_DATABASE: keycloak
+        DB_USER: keycloak
+        DB_PASSWORD: password
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: admin
+        # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+        #JDBC_PARAMS: "ssl=true"
+        #TODO KEYCLOAK_MIGRATION_STRATEGY ONLY FOR DEV AND TEST (In PROD use "IGNORE_EXISTING")
+        KEYCLOAK_MIGRATION_STRATEGY: OVERWRITE_EXISTING #IGNORE_EXISTING
+      volumes:
+        - ../../../target/classes/static/cloud-app-realm.json:/tmp/cloud-app-realm.json
+        - ../../../target/classes/static/keycloak-add-user.json:/opt/jboss/keycloak/standalone/configuration/keycloak-add-user.json
+      ports:
+        - 3000:8080
+      depends_on:
+        - postgres
+  cloud-app:
+    build:
+      context: ../../../target/
+    ports:
+      - 8081:8080
+    environment:
+      SPRING_PROFILES_ACTIVE: "keycloak"
+      #@RAE: Optional Property to set Keycloak Server URL (need a active keycloak profile)
+      #KEYCLOAK_AUTH-SERVER-URL: "http://localhost:3000"

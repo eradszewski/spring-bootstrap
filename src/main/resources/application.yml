@@ -1,7 +1,7 @@
 #Default Config
 ## Use profile java -jar app.jar -Dspring.profiles.active=<Profile-Name>
 application:
-  name: Ich bin eine Spring Demo (Application Name)
+  name: cloud-app
 spring:
   h2:
     console:
@@ -38,14 +38,14 @@ spring:
   profiles: 'keycloak'
 
 keycloak:
-    auth-server-url: http://localhost:8081/auth
+    auth-server-url: http://localhost:3000/auth
     public-client: true
     realm: SpringBootKeycloak
-    resource: login-app-client
+    resource: ${application.name}
     principal-attribute: preferred_username
     security-constraints:
     -   authRoles:
-        - user
+        - spring-bootstrap
         securityCollections:
         -   patterns:
             - /*
